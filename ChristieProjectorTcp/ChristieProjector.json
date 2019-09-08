@@ -1,0 +1,266 @@
+{
+  "CrestronSerialDeviceApi": {
+    "DeviceSupport": {
+      "SupportsCoolDownTime": true,
+      "SupportsDisconnect": true,
+      "SupportsDiscretePower": true,
+      "SupportsPowerFeedback": true,
+      "SupportsReconnect": true,
+      "SupportsWarmUpTime": true,
+      "SupportsFeedback": true,
+      "SupportsInputFeedback": true,
+      "SupportsLampHours": true,
+      "SupportsSetInputSource": true,
+      "SupportsDiscreteVideoMute": true,
+      "SupportsVideoMuteFeedback": true,
+      "SupportsOnScreenDisplayFeedback": true
+    },
+    "DeviceSupport2": null,
+    "GeneralInformation": {
+      "DeviceType": "Projector",
+      "Manufacturer": "Christie",
+      "BaseModel": "Boxer 2K20",
+      "VersionDate": "2019-09-01 15:00:00.000",
+      "DriverVersion": "2.01.003.0001",
+      "SdkVersion": "2.00.003",
+      "Description": "Christie Projector",
+      "Guid": "0bf7d75b-02f3-4061-8c5f-1b2805b156c5",
+      "SupportedSeries": [
+        "Boxer",
+        "M"
+      ],
+      "SupportedModels": [
+        "Boxer 2K20",
+        "Boxer 2K30",
+        "HD14K-M"
+      ]
+    },
+    "Api": {
+      "Communication": {
+        "CommunicationType": 1,
+        "Protocol": -1,
+        "Baud": -1,
+        "Parity": -1,
+        "HwHandshake": -1,
+        "SwHandshake": -1,
+        "DataBits": 0,
+        "StopBits": -1,
+        "Port": 3002,
+        "EnableAutoPolling": true,
+        "EnableAutoReconnect": true,
+        "TimeBetweenCommands": 250,
+        "ResponseTimeout": 1000,
+        "WaitForResponse": false,
+        "IpProtocol": 0,
+        "IsUserAdjustable": false,
+        "Authentication": {
+          "Type": "None",
+          "Required": false
+        },
+        "IsSecure": false,
+        "UserAdjustableProperties": null,
+        "DeviceId": 0
+      },
+      "StandardCommands": {
+        "PowerOff": {
+          "StandardCommand": 6601,
+          "Command": "$PWR 0",
+          "Parameters": []
+        },
+        "PowerOn": {
+          "StandardCommand": 6602,
+          "Command": "$PWR 1",
+          "Parameters": []
+        },
+        "PowerPoll": {
+          "StandardCommand": 6603,
+          "Command": "PWR?",
+          "Parameters": []
+        },
+        "LampHoursPoll": {
+          "StandardCommand": 18400,
+          "Command": "HIS?",
+          "Parameters": []
+        },
+        "VideoMuteOn": {
+          "StandardCommand": 21401,
+          "Command": "$PMT 0",
+          "Parameters": []
+        },
+        "VideoMuteOff": {
+          "StandardCommand": 21402,
+          "Command": "$PMT 1",
+          "Parameters": []
+        },
+        "VideoMutePoll": {
+          "StandardCommand": 21403,
+          "Command": "PMT?",
+          "Parameters": []
+        },
+        "Dvi1": {
+          "StandardCommand": 600,
+          "Command": "$SIN  21",
+          "Parameters": []
+        },
+        "Dvi2": {
+          "StandardCommand": 601,
+          "Command": "$SIN 22",
+          "Parameters": []
+        },
+        "DisplayPort1": {
+          "StandardCommand": 1000,
+          "Command": "$SIN 11",
+          "Parameters": []
+        },
+        "DisplayPort2": {
+          "StandardCommand": 1001,
+          "Command": "$SIN 12",
+          "Parameters": []
+        },
+        "InputPoll": {
+          "StandardCommand": 1900,
+          "Command": "SIN?",
+          "Parameters": []
+        },
+        "OnScreenDisplayPoll": {
+          "StandardCommand": 6403,
+          "Command": "OSD?",
+          "Parameters": []
+        },
+        "OnScreenDisplayOn": {
+          "StandardCommand": 6402,
+          "Command": "$OSD 1",
+          "Parameters": []
+        },
+        "OnScreenDisplayOff": {
+          "StandardCommand": 6401,
+          "Command": "$OSD 0",
+          "Parameters": []
+        }
+      },
+      "CustomCommands": [],
+      "InputConnections": [
+        {
+          "InputType": 600,
+          "InputConnector": 90,
+          "Description": "DVI 1"
+        },
+        {
+          "InputType": 601,
+          "InputConnector": 90,
+          "Description": "DVI 2"
+        },
+        {
+          "InputType": 1000,
+          "InputConnector": 50,
+          "Description": "DisplayPort 1"
+        },
+        {
+          "InputType": 1001,
+          "InputConnector": 50,
+          "Description": "DisplayPort 2"
+        }
+      ],
+      "AudioInOut": {
+        "Inputs": [],
+        "Outputs": []
+      },
+      "VideoInOut": {
+        "Inputs": [
+          {
+            "type": 1000,
+            "description": "Twin DisplayPort Input Card - DP1",
+            "connector": 50
+          },
+          {
+            "type": 1001,
+            "description": "Twin DisplayPort Input Card - DP2",
+            "connector": 50
+          },
+          {
+            "type": 600,
+            "description": "Dual Link DVI Input Card - DVI1",
+            "connector": 90
+          },
+          {
+            "type": 601,
+            "description": "Dual Link DVI Input Card - DVI2",
+            "connector": 40
+          }
+        ],
+        "Outputs": []
+      },
+      "ArrowKeys": null,
+      "PowerWaitPeriod": {
+        "UseLocalWarmupTimer": false,
+        "WarmUpTime": 60,
+        "UseLocalCooldownTimer": false,
+        "CoolDownTime": 120
+      },
+      "Feedback": {
+        "CommandAckNak": {
+          "Ack": "$",
+          "Nak": "^"
+        },
+        "Header": "",
+        "PowerFeedback": {
+          "Feedback": {
+            "On": "001",
+            "Off": "000"
+          },
+          "GroupHeader": "PWR!"
+        },
+        "MuteFeedback": {
+          "Feedback": {},
+          "GroupHeader": ""
+        },
+        "InputFeedback": {
+          "GroupHeader": "SIN!",
+          "Feedback": [
+            {
+              "InputType": 1000,
+              "Feedback": "011"
+            },
+            {
+              "InputType": 1001,
+              "Feedback": "012"
+            },
+            {
+              "InputType": 600,
+              "Feedback": "021"
+            },
+            {
+              "InputType": 601,
+              "Feedback": "022"
+            }
+          ]
+        },
+        "VolumeFeedback": {
+          "GroupHeader": ""
+        },
+        "EnergyStarFeedback": {
+          "Feedback": {},
+          "GroupHeader": ""
+        },
+        "OnScreenDisplayFeedback": {
+          "Feedback": {
+            "On": "001",
+            "Off": "000"
+          },
+          "GroupHeader": ""
+        },
+        "VideoMuteFeedback": {
+          "Feedback": {
+            "On": "001",
+            "Off": "000"
+          },
+          "GroupHeader": "PMT!"
+        },
+        "LampHourFeedback": {
+          "GroupHeader": "HIS!"
+        }
+      }
+    },
+    "UserAttributes": []
+  }
+}
