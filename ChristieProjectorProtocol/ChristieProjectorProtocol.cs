@@ -34,17 +34,10 @@ namespace Crestron.RAD.Drivers.Displays
             ResponseValidation = new ResponseValidator(Id, ValidatedData, this);
             ValidatedData.PowerOnPollingSequence = new[] 
             { 
-                //StandardCommandsEnum.PowerPoll, 
-                //StandardCommandsEnum.VideoMutePoll, 
+                StandardCommandsEnum.VideoMutePoll, 
                 StandardCommandsEnum.LampHoursPoll, 
-                //StandardCommandsEnum.InputPoll
+                StandardCommandsEnum.InputPoll
             };
-            /*
-            ValidatedData.PowerOffPollingSequence = new[]
-            {
-                StandardCommandsEnum.PowerPoll, 
-                StandardCommandsEnum.LampHoursPoll, 
-            };*/
         }
 
         // This will be called when the transport indicates a change to the connection 
