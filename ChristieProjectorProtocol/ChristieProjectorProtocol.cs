@@ -19,9 +19,8 @@ namespace Crestron.RAD.Drivers.Displays
         private const string _coolDownResponse = "010";
         private const string _warmingUpResponse = "011";
 
-        private bool boxerDialect = false;
-        private uint lampCount = 2;
-        private List<uint> lampHours;
+        private bool _boxerDialect = false;
+        private uint[] _lampHours;
 
 
         // A prefix and suffix that is required for all messages sent to the device 
@@ -32,8 +31,6 @@ namespace Crestron.RAD.Drivers.Displays
             : base(transportDriver, id)
         {
 
-            lampHours = new List<uint>(new uint[lampCount]);
-            
             ResponseValidation = new ResponseValidator(Id, ValidatedData, this);
             ValidatedData.PowerOnPollingSequence = new[] 
             { 
@@ -133,15 +130,13 @@ namespace Crestron.RAD.Drivers.Displays
             const string re_hd14k = @"^HIS!(?<id>\d{3})\s(?<number>\d{3})\s\""(?<sn>[\w|\d|/]+)\"".+\""(?<hours>\d+):(?<minutes>\d{2})\""";
             const string re_boxer2k = @"^HIS!(?<id>\d+)\s\"".+\""\s\""(?<sn>[\d|\w|/]+)\"".*""\""\s\d{4}\s\d{4}\s\d{4}\s\d{4}\s(?<hours>\d{4})";
 
-            int _lamp = 0;
-            uint _hours = 0;
-            bool _lampHoursChanged = false;
-
-            if (lampHours.Count < lampCount) lampHours.AddRange(new uint[lampCount - lampHours.Count]);
+            int index = -1;
+            uint hours = 0;
+            bool fireEvent = false;
 
             foreach (string responseItem in responseList)
             {
-                if (boxerDialect)
+                if (_boxerDialect)
                 {
                     MatchCollection mc = Regex.Matches(responseItem, re_boxer2k);
                     if (mc.Count > 0)
@@ -150,12 +145,12 @@ namespace Crestron.RAD.Drivers.Displays
                         {
                             try
                             {
-                                _lamp = Convert.ToInt32(mc[0].Groups["id"].Value);
-                                _hours = Convert.ToUInt32(mc[0].Groups["hours"].Value);
-                                if (0 <= _lamp && _lamp < lampCount && lampHours[_lamp] != _hours)
+                                index = Convert.ToInt32(mc[0].Groups["id"].Value);
+                                hours = Convert.ToUInt32(mc[0].Groups["hours"].Value);
+                                if (index >= 0 && index < _lampHours.Length && hours != _lampHours[index])
                                 {
-                                    lampHours[_lamp] = _hours;
-                                    _lampHoursChanged = true;
+                                    _lampHours[index] = hours;
+                                    fireEvent = true;
                                 }
                             }
                             catch
@@ -174,12 +169,12 @@ namespace Crestron.RAD.Drivers.Displays
                         {
                             try
                             {
-                                _lamp = Convert.ToInt32(mc[0].Groups["number"].Value) - 1;
-                                _hours = Convert.ToUInt32(mc[0].Groups["hours"].Value);
-                                if (0 <= _lamp && _lamp < lampCount && lampHours[_lamp] != _hours)
+                                index = Convert.ToInt32(mc[0].Groups["number"].Value) - 1;
+                                hours = Convert.ToUInt32(mc[0].Groups["hours"].Value);
+                                if (index >= 0 && index < _lampHours.Length && hours != _lampHours[index])
                                 {
-                                    lampHours[_lamp] = _hours;
-                                    _lampHoursChanged = true;
+                                    _lampHours[index] = hours;
+                                    fireEvent = true;
                                 }
                             }
                             catch
@@ -192,10 +187,11 @@ namespace Crestron.RAD.Drivers.Displays
                 }
             }//foreach
 
-            if (_lampHoursChanged)
+            if (fireEvent)
             {
-                var p = new Crestron.RAD.DeviceTypes.Display.Projector();
-                p.LampHours = new List<uint>(lampHours);
+                var p = new Crestron.RAD.DeviceTypes.Display.Projector() {
+                    LampHours = new List<uint>(_lampHours)
+                };
                 FireEvent(DisplayStateObjects.LampHours, p);
             }
         }
@@ -283,12 +279,15 @@ namespace Crestron.RAD.Drivers.Displays
                     {
                         if (responseItem.Contains("Boxer"))
                         {
-                            _protocol.boxerDialect = true;
-                            _protocol.lampCount = 4;
+                            _protocol._boxerDialect = true;
+                            _protocol._lampHours = new uint[4];
                             _protocol.Log("Christie: dialect is Boxer.");
                         }
                         else
+                        {
                             _protocol.Log("Christie: dialect is HD-MD14K.");
+                            _protocol._lampHours = new uint[2];
+                        }
                         validatedData.CommandGroup = CommonCommandGroupType.AckNak;
                         validatedData.Data = DataValidation.AckDefinition;
                         validatedData.Ready = true;
