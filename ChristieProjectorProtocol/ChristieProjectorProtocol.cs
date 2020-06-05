@@ -272,9 +272,11 @@ namespace Crestron.RAD.Drivers.Displays
                     {
                         if (responseItem.Contains("Boxer"))
                         {
+                            _protocol.Log("Christie: dialect is Boxer.");
                             _protocol._boxerDialect = true;
                             _protocol._lampHours = new uint[4];
-                            _protocol.Log("Christie: dialect is Boxer.");
+                            // remove StandardCommandsEnum.VideoMutePoll from polling sequence as no command found for Boxer2k
+                            _protocol.ValidatedData.PowerOnPollingSequence = _protocol.ValidatedData.PowerOnPollingSequence.Where(item => item != StandardCommandsEnum.VideoMutePoll).ToArray();
                         }
                         else
                         {
