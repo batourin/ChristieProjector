@@ -5,11 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChristieProjectorTcp", "Chr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChristieProjectorProtocol", "ChristieProjectorProtocol\ChristieProjectorProtocol.csproj", "{2127FDC5-6332-40CE-AC60-EAC62E72BD3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ethernet", "..\SDK\Sample Projects\Display\Ethernet\Ethernet.csproj", "{2666E0C4-48B6-428C-8745-A84747FAF7C6}"
-	ProjectSection(ProjectDependencies) = postProject
-		{29D196E8-AC3D-4CB8-B622-AC4CF0627E05} = {29D196E8-AC3D-4CB8-B622-AC4CF0627E05}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +19,6 @@ Global
 		{2127FDC5-6332-40CE-AC60-EAC62E72BD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2127FDC5-6332-40CE-AC60-EAC62E72BD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2127FDC5-6332-40CE-AC60-EAC62E72BD3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2666E0C4-48B6-428C-8745-A84747FAF7C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2666E0C4-48B6-428C-8745-A84747FAF7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2666E0C4-48B6-428C-8745-A84747FAF7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2666E0C4-48B6-428C-8745-A84747FAF7C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

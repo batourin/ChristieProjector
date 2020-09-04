@@ -49,11 +49,11 @@
     <Reference Include="mscorlib" />
     <Reference Include="RADCommon, Version=2.4.4.23, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SDK\Libraries\RADCommon.dll</HintPath>
+      <HintPath>..\..\..\..\..\OneDrive - University of Toronto\Documents\Crestron\RAD\SDK\Libraries\RADCommon.dll</HintPath>
     </Reference>
     <Reference Include="RADDisplay, Version=2.4.4.37, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SDK\Libraries\RADDisplay.dll</HintPath>
+      <HintPath>..\..\..\..\..\OneDrive - University of Toronto\Documents\Crestron\RAD\SDK\Libraries\RADDisplay.dll</HintPath>
     </Reference>
     <Reference Include="SimplSharpCustomAttributesInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1099c178b3b54c3b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
