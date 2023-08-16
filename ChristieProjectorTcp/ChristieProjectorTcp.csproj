@@ -46,14 +46,18 @@
     <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Crestron.DeviceDrivers.API, Version=20.0.23.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CrestronDriversSDK\Libraries\Crestron.DeviceDrivers.API.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="RADCommon, Version=2.4.4.23, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\OneDrive - University of Toronto\Documents\Crestron\RAD\SDK\Libraries\RADCommon.dll</HintPath>
+      <HintPath>..\..\..\CrestronDriversSDK\Libraries\RADCommon.dll</HintPath>
     </Reference>
     <Reference Include="RADDisplay, Version=2.4.4.37, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\OneDrive - University of Toronto\Documents\Crestron\RAD\SDK\Libraries\RADDisplay.dll</HintPath>
+      <HintPath>..\..\..\CrestronDriversSDK\Libraries\RADDisplay.dll</HintPath>
     </Reference>
     <Reference Include="SimplSharpCustomAttributesInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1099c178b3b54c3b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

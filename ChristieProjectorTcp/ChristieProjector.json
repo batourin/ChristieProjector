@@ -15,13 +15,13 @@
       "SupportsVideoMuteFeedback": true,
       "SupportsOnScreenDisplayFeedback": true
     },
-    "DeviceSupport2": null,
+    "DeviceSupport2":  [],
     "GeneralInformation": {
       "DeviceType": "Projector",
       "Manufacturer": "Christie",
       "BaseModel": "Boxer 2K20",
-      "VersionDate": "2019-09-01 15:00:00.000",
-      "DriverVersion": "2.01.003.0001",
+      "VersionDate": "2023-08-16 15:00:00.000",
+      "DriverVersion": "2.02.001.0001",
       "SdkVersion": "2.00.003",
       "Description": "Christie Projector",
       "Guid": "0bf7d75b-02f3-4061-8c5f-1b2805b156c5",
@@ -58,7 +58,7 @@
           "Required": false
         },
         "IsSecure": false,
-        "UserAdjustableProperties": null,
+        "UserAdjustableProperties":  [],
         "DeviceId": 0
       },
       "StandardCommands": {
